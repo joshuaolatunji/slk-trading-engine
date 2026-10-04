@@ -1,0 +1,42 @@
+{
+  "_note": "User-approved override layer on top of strategy_config.json v1.0. Does not modify the original baseline file. Created 2026-10-04 after an explicit CONFIG_CONFLICT resolution (user's 5% per-trade risk vs. the package's 0.25% baseline).",
+  "broker": "HFX (PT. HFX Internasional Berjangka, BAPPEBTI licence 877/BAPPEBTI/SI/1/2006)",
+  "account_equity": 500,
+  "account_currency": "USD",
+  "server_timezone": "GMT+3",
+
+  "risk_override": {
+    "approved_by": "user, 2026-10-04",
+    "reason": "User explicitly chose to override the SLK baseline risk policy rather than accept SIZE_BELOW_MINIMUM rejections likely on a $500 account at 0.25% per-setup risk.",
+    "per_setup_equity_fraction": 0.05,
+    "total_open_and_pending_equity_fraction": 0.10,
+    "daily_loss_fraction_of_start_equity": 0.05,
+    "weekly_loss_fraction_of_start_equity": 0.10,
+    "common_driver_cluster_equity_fraction": 0.05,
+    "baseline_for_comparison": {
+      "per_setup_equity_fraction": 0.0025,
+      "total_open_and_pending_equity_fraction": 0.01,
+      "daily_loss_fraction_of_start_equity": 0.01,
+      "weekly_loss_fraction_of_start_equity": 0.02,
+      "common_driver_cluster_equity_fraction": 0.005
+    }
+  },
+
+  "broker_profile_required": {
+    "EURUSD": {"provider": "HFX", "symbol": "EURUSD", "product_type": "FOREX_CFD", "quote_currency": "USD", "account_currency": "USD", "contract_multiplier": 100000, "tick_size": null, "quantity_step": null, "minimum_quantity": null, "minimum_stop_distance": null, "typical_spread_pips": 0.3, "leverage_up_to": "CONFLICT: spec table says 1:200, margin-example text says 1:500 -- unresolved", "swap_long_points": -8.8, "swap_short_points": 0.0, "source": "hfx.co.id/en/trading-products/trading-details-forex.html"},
+    "GBPUSD": {"provider": "HFX", "symbol": "GBPUSD", "product_type": "FOREX_CFD", "quote_currency": "USD", "account_currency": "USD", "contract_multiplier": 100000, "tick_size": null, "quantity_step": null, "minimum_quantity": null, "minimum_stop_distance": null, "typical_spread_pips": 0.5, "leverage_up_to": "CONFLICT: see EURUSD note", "swap_long_points": -3.3, "swap_short_points": -3.9, "source": "hfx.co.id/en/trading-products/trading-details-forex.html"},
+    "USDJPY": {"provider": "HFX", "symbol": "USDJPY", "product_type": "FOREX_CFD", "quote_currency": "JPY", "account_currency": "USD", "contract_multiplier": 100000, "tick_size": null, "quantity_step": null, "minimum_quantity": null, "minimum_stop_distance": null, "typical_spread_pips": 0.3, "leverage_up_to": "CONFLICT: see EURUSD note", "swap_long_points": 0.0, "swap_short_points": -23.9, "source": "hfx.co.id/en/trading-products/trading-details-forex.html"},
+    "USDCHF": {"provider": "HFX", "symbol": "USDCHF", "product_type": "FOREX_CFD", "quote_currency": "CHF", "account_currency": "USD", "contract_multiplier": 100000, "tick_size": null, "quantity_step": null, "minimum_quantity": null, "minimum_stop_distance": null, "typical_spread_pips": 0.8, "leverage_up_to": "CONFLICT: see EURUSD note", "swap_long_points": 0.0, "swap_short_points": -13.0, "source": "hfx.co.id/en/trading-products/trading-details-forex.html"},
+    "XAUUSD": {"provider": "HFX", "symbol": "XAUUSD", "product_type": "METAL_SPOT_CFD", "quote_currency": "USD", "account_currency": "USD", "contract_multiplier": 100, "contract_unit": "troy ounces", "tick_size": null, "quantity_step": null, "minimum_quantity": null, "minimum_stop_distance": null, "typical_spread": 0.19, "leverage_up_to": "CONFLICT: see EURUSD note", "swap_long_points": -79.5, "swap_short_points": 0.0, "source": "hfx.co.id/en/trading-products/trading-details-metals-and-energies.html"},
+    "NAS100": {"provider": "HFX", "symbol": "US Tech 100", "product_type": "INDEX_CFD", "quote_currency": null, "account_currency": "USD", "contract_multiplier": null, "tick_size": null, "quantity_step": null, "minimum_quantity": null, "minimum_stop_distance": null, "leverage_up_to": null, "source": "user-reported MT4 symbol name only; NOT published on hfx.co.id (site shows no Indices product page at all); full contract specification not yet confirmed"}
+  },
+
+  "unresolved_before_contract_identity_can_pass": [
+    "Tick size / price decimal precision for all 6 instruments (inferred from pip quoting convention only, not confirmed from MT4 Symbol Specification)",
+    "Lot step and minimum quantity for all 6 instruments (assumed 0.01 standard MT4 default, NOT confirmed)",
+    "Minimum stop distance for all 6 instruments (unknown)",
+    "Commission model: HFX markets 'raw spreads with low commissions' but no commission schedule is published; unconfirmed whether cost is spread-only or spread+commission",
+    "Leverage conflict (1:200 spec table vs 1:500 margin-example text) unresolved -- affects margin/headroom checks, not position sizing directly",
+    "NAS100 ('US Tech 100'): contract multiplier, tick size, quantity step, minimum quantity, minimum stop distance all still needed from MT4 Symbol Specification dialog"
+  ]
+}

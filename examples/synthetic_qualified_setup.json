@@ -1,0 +1,344 @@
+{
+  "schema_version": "1.0",
+  "strategy_version": "1.0",
+  "as_of_utc": "2026-09-15T08:00:00Z",
+  "data_origin": "SYNTHETIC",
+  "decision": "QUALIFIED_SETUP",
+  "validation_status": "UNVALIDATED",
+  "live_execution_allowed": false,
+  "probability_of_profit": null,
+  "instrument": {
+    "provider": "SYNTHETIC_FIXTURE_NOT_A_BROKER",
+    "symbol": "EURUSD_EXAMPLE",
+    "profile": "FOREX",
+    "product_type": "ILLUSTRATIVE_FX_CONTRACT",
+    "account_currency": "USD",
+    "price_basis": "BID",
+    "snapshot_id": "SYNTHETIC-SNAPSHOT-001"
+  },
+  "policies": {
+    "bias": "B1",
+    "entry": "P1"
+  },
+  "setup_id": "SYNTHETIC-ONLY-B1-P1-LONG-001",
+  "prior_setup_id": null,
+  "lifecycle": "ARMED",
+  "summary": "SYNTHETIC FORMAT AND ARITHMETIC EXAMPLE ONLY. Gate facts are stipulated illustrative inputs, not calculated from a historical dataset or a live market. This is not a tradable signal.",
+  "missing_inputs": [],
+  "rejection_codes": [],
+  "gates": {
+    "data_integrity": {
+      "status": "PASS",
+      "reason": "Illustrative assumption or arithmetic only; not validated market evidence.",
+      "evidence_ids": [
+        "SYNTHETIC-FACT-01"
+      ]
+    },
+    "data_freshness": {
+      "status": "PASS",
+      "reason": "Illustrative assumption or arithmetic only; not validated market evidence.",
+      "evidence_ids": [
+        "SYNTHETIC-FACT-02"
+      ]
+    },
+    "contract_identity": {
+      "status": "PASS",
+      "reason": "Illustrative assumption or arithmetic only; not validated market evidence.",
+      "evidence_ids": [
+        "SYNTHETIC-FACT-03"
+      ]
+    },
+    "calendar_coverage": {
+      "status": "PASS",
+      "reason": "Illustrative assumption or arithmetic only; not validated market evidence.",
+      "evidence_ids": [
+        "SYNTHETIC-FACT-04"
+      ]
+    },
+    "weekly_bias": {
+      "status": "PASS",
+      "reason": "Illustrative assumption or arithmetic only; not validated market evidence.",
+      "evidence_ids": [
+        "SYNTHETIC-FACT-05"
+      ]
+    },
+    "daily_or_exception_confirmation": {
+      "status": "PASS",
+      "reason": "Illustrative assumption or arithmetic only; not validated market evidence.",
+      "evidence_ids": [
+        "SYNTHETIC-FACT-06"
+      ]
+    },
+    "h4_alignment": {
+      "status": "PASS",
+      "reason": "Illustrative assumption or arithmetic only; not validated market evidence.",
+      "evidence_ids": [
+        "SYNTHETIC-FACT-07"
+      ]
+    },
+    "setup_geometry": {
+      "status": "PASS",
+      "reason": "Illustrative assumption or arithmetic only; not validated market evidence.",
+      "evidence_ids": [
+        "SYNTHETIC-FACT-08"
+      ]
+    },
+    "causal_sequence": {
+      "status": "PASS",
+      "reason": "Illustrative assumption or arithmetic only; not validated market evidence.",
+      "evidence_ids": [
+        "SYNTHETIC-FACT-09"
+      ]
+    },
+    "fresh_level": {
+      "status": "PASS",
+      "reason": "Illustrative assumption or arithmetic only; not validated market evidence.",
+      "evidence_ids": [
+        "SYNTHETIC-FACT-10"
+      ]
+    },
+    "target_path": {
+      "status": "PASS",
+      "reason": "Illustrative assumption or arithmetic only; not validated market evidence.",
+      "evidence_ids": [
+        "SYNTHETIC-FACT-11"
+      ]
+    },
+    "net_reward_risk": {
+      "status": "PASS",
+      "reason": "Illustrative assumption or arithmetic only; not validated market evidence.",
+      "evidence_ids": [
+        "SYNTHETIC-FACT-12"
+      ]
+    },
+    "session_news": {
+      "status": "PASS",
+      "reason": "Illustrative assumption or arithmetic only; not validated market evidence.",
+      "evidence_ids": [
+        "SYNTHETIC-FACT-13"
+      ]
+    },
+    "spread_execution": {
+      "status": "PASS",
+      "reason": "Illustrative assumption or arithmetic only; not validated market evidence.",
+      "evidence_ids": [
+        "SYNTHETIC-FACT-14"
+      ]
+    },
+    "portfolio_sizing": {
+      "status": "PASS",
+      "reason": "Illustrative assumption or arithmetic only; not validated market evidence.",
+      "evidence_ids": [
+        "SYNTHETIC-FACT-15"
+      ]
+    }
+  },
+  "evidence": [
+    {
+      "id": "SYNTHETIC-FACT-01",
+      "source_input_id": "SYNTHETIC-STIPULATED-FIXTURE",
+      "timeframe": null,
+      "bar_ids": [],
+      "formed_at_utc": "2026-09-15T07:59:50Z",
+      "known_at_utc": "2026-09-15T07:59:50Z",
+      "observation": "Stipulated fixture has complete valid OHLC history; no real dataset is attached.",
+      "rule_or_threshold": "Required history and OHLC constraints"
+    },
+    {
+      "id": "SYNTHETIC-FACT-02",
+      "source_input_id": "SYNTHETIC-STIPULATED-FIXTURE",
+      "timeframe": null,
+      "bar_ids": [],
+      "formed_at_utc": "2026-09-15T07:59:50Z",
+      "known_at_utc": "2026-09-15T07:59:50Z",
+      "observation": "Synthetic quote/account timestamps are assumed current to the synthetic as-of time.",
+      "rule_or_threshold": "Quote <=15 seconds; account <=60 seconds"
+    },
+    {
+      "id": "SYNTHETIC-FACT-03",
+      "source_input_id": "SYNTHETIC-STIPULATED-FIXTURE",
+      "timeframe": null,
+      "bar_ids": [],
+      "formed_at_utc": "2026-09-15T07:59:50Z",
+      "known_at_utc": "2026-09-15T07:59:50Z",
+      "observation": "Synthetic USD account, 100000 EUR per lot, 0.01-lot step/minimum, tick 0.00001.",
+      "rule_or_threshold": "Contract metadata stipulated only"
+    },
+    {
+      "id": "SYNTHETIC-FACT-04",
+      "source_input_id": "SYNTHETIC-STIPULATED-FIXTURE",
+      "timeframe": null,
+      "bar_ids": [],
+      "formed_at_utc": "2026-09-15T07:59:50Z",
+      "known_at_utc": "2026-09-15T07:59:50Z",
+      "observation": "Synthetic calendar assumes no relevant event in the holding window.",
+      "rule_or_threshold": "Calendar coverage and age policy"
+    },
+    {
+      "id": "SYNTHETIC-FACT-05",
+      "source_input_id": "SYNTHETIC-STIPULATED-FIXTURE",
+      "timeframe": "W1",
+      "bar_ids": [
+        "SYNTHETIC-W1-CONTEXT-4"
+      ],
+      "formed_at_utc": "2026-09-11T21:00:00Z",
+      "known_at_utc": "2026-09-11T21:00:00Z",
+      "observation": "Stipulated closed weekly low sweep/reclaim with untouched high above 1.10400.",
+      "rule_or_threshold": "B1 weekly event, known before daily confirmation"
+    },
+    {
+      "id": "SYNTHETIC-FACT-06",
+      "source_input_id": "SYNTHETIC-STIPULATED-FIXTURE",
+      "timeframe": "D1",
+      "bar_ids": [
+        "SYNTHETIC-D1-CONTEXT-5"
+      ],
+      "formed_at_utc": "2026-09-14T21:00:00Z",
+      "known_at_utc": "2026-09-14T21:00:00Z",
+      "observation": "Stipulated D1 bullish body break after weekly event known-at.",
+      "rule_or_threshold": "B1 daily confirmation"
+    },
+    {
+      "id": "SYNTHETIC-FACT-07",
+      "source_input_id": "SYNTHETIC-STIPULATED-FIXTURE",
+      "timeframe": "H4",
+      "bar_ids": [
+        "SYNTHETIC-H4-CONTEXT-6"
+      ],
+      "formed_at_utc": "2026-09-15T00:00:00Z",
+      "known_at_utc": "2026-09-15T00:00:00Z",
+      "observation": "Stipulated H4 bullish body break after daily confirmation.",
+      "rule_or_threshold": "B1 H4 alignment"
+    },
+    {
+      "id": "SYNTHETIC-FACT-08",
+      "source_input_id": "SYNTHETIC-STIPULATED-FIXTURE",
+      "timeframe": "H1",
+      "bar_ids": [
+        "SYNTHETIC-H1-CONTEXT-7"
+      ],
+      "formed_at_utc": "2026-09-15T07:00:00Z",
+      "known_at_utc": "2026-09-15T07:00:00Z",
+      "observation": "Stipulated A center 1.10020 flipped upward within FVG [1.10000,1.10100]; inside low 1.10120; sponsored reaction and displacement pass.",
+      "rule_or_threshold": "P1 exact geometry assumed"
+    },
+    {
+      "id": "SYNTHETIC-FACT-09",
+      "source_input_id": "SYNTHETIC-STIPULATED-FIXTURE",
+      "timeframe": null,
+      "bar_ids": [],
+      "formed_at_utc": "2026-09-15T07:59:50Z",
+      "known_at_utc": "2026-09-15T07:59:50Z",
+      "observation": "All hypothetical pivots and FVG/inside-candle facts known before arming; no retrospective fill assumed.",
+      "rule_or_threshold": "known_at <= as_of"
+    },
+    {
+      "id": "SYNTHETIC-FACT-10",
+      "source_input_id": "SYNTHETIC-STIPULATED-FIXTURE",
+      "timeframe": null,
+      "bar_ids": [],
+      "formed_at_utc": "2026-09-15T07:59:50Z",
+      "known_at_utc": "2026-09-15T07:59:50Z",
+      "observation": "No earlier post-break contact with hypothetical zone before arming.",
+      "rule_or_threshold": "First retest only"
+    },
+    {
+      "id": "SYNTHETIC-FACT-11",
+      "source_input_id": "SYNTHETIC-STIPULATED-FIXTURE",
+      "timeframe": null,
+      "bar_ids": [],
+      "formed_at_utc": "2026-09-15T07:59:50Z",
+      "known_at_utc": "2026-09-15T07:59:50Z",
+      "observation": "Stipulated nearest target reference 1.10360, buffer 0.00010, no intervening opposing zone.",
+      "rule_or_threshold": "Nearest untouched target minus buffer"
+    },
+    {
+      "id": "SYNTHETIC-FACT-12",
+      "source_input_id": "SYNTHETIC-STIPULATED-FIXTURE",
+      "timeframe": null,
+      "bar_ids": [],
+      "formed_at_utc": "2026-09-15T07:59:50Z",
+      "known_at_utc": "2026-09-15T07:59:50Z",
+      "observation": "Arithmetic yields loss 137 USD/lot and reward 323 USD/lot, net R 2.357664.",
+      "rule_or_threshold": "Net R >=2"
+    },
+    {
+      "id": "SYNTHETIC-FACT-13",
+      "source_input_id": "SYNTHETIC-STIPULATED-FIXTURE",
+      "timeframe": null,
+      "bar_ids": [],
+      "formed_at_utc": "2026-09-15T07:59:50Z",
+      "known_at_utc": "2026-09-15T07:59:50Z",
+      "observation": "Synthetic as-of is 09:00 London; chosen window ends 11:00 London (10:00 UTC). No news block assumed.",
+      "rule_or_threshold": "London window, earliest expiry"
+    },
+    {
+      "id": "SYNTHETIC-FACT-14",
+      "source_input_id": "SYNTHETIC-STIPULATED-FIXTURE",
+      "timeframe": null,
+      "bar_ids": [],
+      "formed_at_utc": "2026-09-15T07:59:50Z",
+      "known_at_utc": "2026-09-15T07:59:50Z",
+      "observation": "Synthetic bid 1.10140, ask 1.10145; median spread 0.00004. Broker trigger mapping stipulated.",
+      "rule_or_threshold": "Spread 0.00005 <=1.5*0.00004 and <10% stop distance"
+    },
+    {
+      "id": "SYNTHETIC-FACT-15",
+      "source_input_id": "SYNTHETIC-STIPULATED-FIXTURE",
+      "timeframe": null,
+      "bar_ids": [],
+      "formed_at_utc": "2026-09-15T07:59:50Z",
+      "known_at_utc": "2026-09-15T07:59:50Z",
+      "observation": "Synthetic equity 10000 USD, no prior/open risk, permitted cash risk 25 USD; 0.18 lots risks 24.66 USD.",
+      "rule_or_threshold": "Risk and size headroom assumed"
+    }
+  ],
+  "trade_plan": {
+    "side": "LONG",
+    "order_type": "LIMIT",
+    "entry_price": 1.1002,
+    "stop_trigger_price": 1.09895,
+    "adverse_stop_fill_price": 1.0989,
+    "target_trigger_price": 1.1035,
+    "conservative_target_fill_price": 1.1035,
+    "entry_price_side": "ASK",
+    "exit_trigger_side": "BID",
+    "quote_bid": 1.1014,
+    "quote_ask": 1.10145,
+    "quote_at_utc": "2026-09-15T07:59:55Z",
+    "quantity": 0.18,
+    "quantity_unit": "LOT",
+    "quantity_step": 0.01,
+    "minimum_quantity": 0.01,
+    "account_currency": "USD",
+    "equity": 10000,
+    "value_per_price_unit_per_quantity": 100000,
+    "round_trip_cost_per_quantity": 7,
+    "loss_per_quantity": 137,
+    "reward_per_quantity": 323,
+    "net_reward_risk": 2.3576642335766422,
+    "allowed_risk_cash": 25,
+    "planned_risk_cash": 24.66,
+    "risk_fraction_of_equity": 0.002466,
+    "selected_session_id": "FX_LONDON",
+    "valid_until_utc": "2026-09-15T10:00:00Z",
+    "cancel_if": [
+      "Selected window ends",
+      "Target touched before fill",
+      "Bias invalidates",
+      "Opposite H1 break",
+      "News or spread gate fails",
+      "Account risk headroom changes"
+    ],
+    "weekly_target_evidence_id": "SYNTHETIC-FACT-05",
+    "entry_evidence_id": "SYNTHETIC-FACT-08",
+    "stop_evidence_id": "SYNTHETIC-FACT-08",
+    "target_evidence_id": "SYNTHETIC-FACT-11",
+    "assumptions": [
+      "Not a market signal; synthetic numbers only.",
+      "Minimum structural stop reference and stop buffer are stipulated to give stop trigger 1.09895.",
+      "Cost 7 USD/lot includes all modeled commission/financing; no additional spread charge.",
+      "Real geometry and session checks have not been run by a trading engine."
+    ]
+  }
+}

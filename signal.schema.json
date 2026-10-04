@@ -1,0 +1,1313 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SLK research signal 1.0",
+  "description": "Shape validation only. Enforce the tradebook semantic invariants separately. This schema permits unvalidated paper signals, not order execution.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "strategy_version": {
+      "const": "1.0"
+    },
+    "as_of_utc": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+    },
+    "data_origin": {
+      "enum": [
+        "LIVE",
+        "HISTORICAL",
+        "SYNTHETIC",
+        "MISSING"
+      ]
+    },
+    "decision": {
+      "enum": [
+        "INSUFFICIENT_DATA",
+        "NO_TRADE",
+        "WATCHLIST",
+        "QUALIFIED_SETUP",
+        "INVALIDATED"
+      ]
+    },
+    "validation_status": {
+      "enum": [
+        "UNVALIDATED",
+        "RESEARCH_VALIDATED"
+      ]
+    },
+    "live_execution_allowed": {
+      "const": false
+    },
+    "probability_of_profit": {
+      "type": "null"
+    },
+    "instrument": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "provider": {
+              "type": "string"
+            },
+            "symbol": {
+              "type": "string"
+            },
+            "profile": {
+              "enum": [
+                "FOREX",
+                "XAUUSD",
+                "NAS100",
+                "JAP225"
+              ]
+            },
+            "product_type": {
+              "type": "string"
+            },
+            "account_currency": {
+              "type": "string"
+            },
+            "price_basis": {
+              "enum": [
+                "BID"
+              ]
+            },
+            "snapshot_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "provider",
+            "symbol",
+            "profile",
+            "product_type",
+            "account_currency",
+            "price_basis",
+            "snapshot_id"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "policies": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "bias": {
+          "enum": [
+            "B1",
+            "B2"
+          ]
+        },
+        "entry": {
+          "enum": [
+            "P1",
+            "P2"
+          ]
+        }
+      },
+      "required": [
+        "bias",
+        "entry"
+      ]
+    },
+    "setup_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "prior_setup_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "lifecycle": {
+      "enum": [
+        "OBSERVED",
+        "ARMED",
+        "FILLED",
+        "CANCELLED",
+        "EXPIRED",
+        "CLOSED"
+      ]
+    },
+    "summary": {
+      "type": "string"
+    },
+    "missing_inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rejection_codes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "gates": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "data_integrity": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "status",
+            "reason",
+            "evidence_ids"
+          ]
+        },
+        "data_freshness": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "status",
+            "reason",
+            "evidence_ids"
+          ]
+        },
+        "contract_identity": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "status",
+            "reason",
+            "evidence_ids"
+          ]
+        },
+        "calendar_coverage": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "status",
+            "reason",
+            "evidence_ids"
+          ]
+        },
+        "weekly_bias": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "status",
+            "reason",
+            "evidence_ids"
+          ]
+        },
+        "daily_or_exception_confirmation": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "status",
+            "reason",
+            "evidence_ids"
+          ]
+        },
+        "h4_alignment": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "status",
+            "reason",
+            "evidence_ids"
+          ]
+        },
+        "setup_geometry": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "status",
+            "reason",
+            "evidence_ids"
+          ]
+        },
+        "causal_sequence": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "status",
+            "reason",
+            "evidence_ids"
+          ]
+        },
+        "fresh_level": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "status",
+            "reason",
+            "evidence_ids"
+          ]
+        },
+        "target_path": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "status",
+            "reason",
+            "evidence_ids"
+          ]
+        },
+        "net_reward_risk": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "status",
+            "reason",
+            "evidence_ids"
+          ]
+        },
+        "session_news": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "status",
+            "reason",
+            "evidence_ids"
+          ]
+        },
+        "spread_execution": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "status",
+            "reason",
+            "evidence_ids"
+          ]
+        },
+        "portfolio_sizing": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "UNKNOWN"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "status",
+            "reason",
+            "evidence_ids"
+          ]
+        }
+      },
+      "required": [
+        "data_integrity",
+        "data_freshness",
+        "contract_identity",
+        "calendar_coverage",
+        "weekly_bias",
+        "daily_or_exception_confirmation",
+        "h4_alignment",
+        "setup_geometry",
+        "causal_sequence",
+        "fresh_level",
+        "target_path",
+        "net_reward_risk",
+        "session_news",
+        "spread_execution",
+        "portfolio_sizing"
+      ]
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "source_input_id": {
+            "type": "string"
+          },
+          "timeframe": {
+            "anyOf": [
+              {
+                "enum": [
+                  "W1",
+                  "D1",
+                  "H4",
+                  "H1",
+                  "M15",
+                  "M5",
+                  "TICK"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "bar_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "formed_at_utc": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+          },
+          "known_at_utc": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+          },
+          "observation": {
+            "type": "string"
+          },
+          "rule_or_threshold": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "source_input_id",
+          "timeframe",
+          "bar_ids",
+          "formed_at_utc",
+          "known_at_utc",
+          "observation",
+          "rule_or_threshold"
+        ]
+      }
+    },
+    "trade_plan": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "side": {
+              "enum": [
+                "LONG",
+                "SHORT"
+              ]
+            },
+            "order_type": {
+              "const": "LIMIT"
+            },
+            "entry_price": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "stop_trigger_price": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "adverse_stop_fill_price": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "target_trigger_price": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "conservative_target_fill_price": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "entry_price_side": {
+              "enum": [
+                "ASK",
+                "BID"
+              ]
+            },
+            "exit_trigger_side": {
+              "enum": [
+                "ASK",
+                "BID"
+              ]
+            },
+            "quote_bid": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "quote_ask": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "quote_at_utc": {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+            },
+            "quantity": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "quantity_unit": {
+              "type": "string"
+            },
+            "quantity_step": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "minimum_quantity": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "account_currency": {
+              "type": "string"
+            },
+            "equity": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "value_per_price_unit_per_quantity": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "round_trip_cost_per_quantity": {
+              "type": "number",
+              "minimum": 0
+            },
+            "loss_per_quantity": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "reward_per_quantity": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "net_reward_risk": {
+              "type": "number",
+              "minimum": 2
+            },
+            "allowed_risk_cash": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "planned_risk_cash": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "risk_fraction_of_equity": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "selected_session_id": {
+              "type": "string"
+            },
+            "valid_until_utc": {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+            },
+            "cancel_if": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "weekly_target_evidence_id": {
+              "type": "string"
+            },
+            "entry_evidence_id": {
+              "type": "string"
+            },
+            "stop_evidence_id": {
+              "type": "string"
+            },
+            "target_evidence_id": {
+              "type": "string"
+            },
+            "assumptions": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "side",
+            "order_type",
+            "entry_price",
+            "stop_trigger_price",
+            "adverse_stop_fill_price",
+            "target_trigger_price",
+            "conservative_target_fill_price",
+            "entry_price_side",
+            "exit_trigger_side",
+            "quote_bid",
+            "quote_ask",
+            "quote_at_utc",
+            "quantity",
+            "quantity_unit",
+            "quantity_step",
+            "minimum_quantity",
+            "account_currency",
+            "equity",
+            "value_per_price_unit_per_quantity",
+            "round_trip_cost_per_quantity",
+            "loss_per_quantity",
+            "reward_per_quantity",
+            "net_reward_risk",
+            "allowed_risk_cash",
+            "planned_risk_cash",
+            "risk_fraction_of_equity",
+            "selected_session_id",
+            "valid_until_utc",
+            "cancel_if",
+            "weekly_target_evidence_id",
+            "entry_evidence_id",
+            "stop_evidence_id",
+            "target_evidence_id",
+            "assumptions"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "strategy_version",
+    "as_of_utc",
+    "data_origin",
+    "decision",
+    "validation_status",
+    "live_execution_allowed",
+    "probability_of_profit",
+    "instrument",
+    "policies",
+    "setup_id",
+    "prior_setup_id",
+    "lifecycle",
+    "summary",
+    "missing_inputs",
+    "rejection_codes",
+    "gates",
+    "evidence",
+    "trade_plan"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "decision": {
+            "const": "QUALIFIED_SETUP"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "instrument": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "provider": {
+                "type": "string"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "profile": {
+                "enum": [
+                  "FOREX",
+                  "XAUUSD",
+                  "NAS100",
+                  "JAP225"
+                ]
+              },
+              "product_type": {
+                "type": "string"
+              },
+              "account_currency": {
+                "type": "string"
+              },
+              "price_basis": {
+                "enum": [
+                  "BID"
+                ]
+              },
+              "snapshot_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "provider",
+              "symbol",
+              "profile",
+              "product_type",
+              "account_currency",
+              "price_basis",
+              "snapshot_id"
+            ]
+          },
+          "setup_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "trade_plan": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "side": {
+                "enum": [
+                  "LONG",
+                  "SHORT"
+                ]
+              },
+              "order_type": {
+                "const": "LIMIT"
+              },
+              "entry_price": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "stop_trigger_price": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "adverse_stop_fill_price": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "target_trigger_price": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "conservative_target_fill_price": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "entry_price_side": {
+                "enum": [
+                  "ASK",
+                  "BID"
+                ]
+              },
+              "exit_trigger_side": {
+                "enum": [
+                  "ASK",
+                  "BID"
+                ]
+              },
+              "quote_bid": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "quote_ask": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "quote_at_utc": {
+                "type": "string",
+                "format": "date-time",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+              },
+              "quantity": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "quantity_unit": {
+                "type": "string"
+              },
+              "quantity_step": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "minimum_quantity": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "account_currency": {
+                "type": "string"
+              },
+              "equity": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "value_per_price_unit_per_quantity": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "round_trip_cost_per_quantity": {
+                "type": "number",
+                "minimum": 0
+              },
+              "loss_per_quantity": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "reward_per_quantity": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "net_reward_risk": {
+                "type": "number",
+                "minimum": 2
+              },
+              "allowed_risk_cash": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "planned_risk_cash": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "risk_fraction_of_equity": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "selected_session_id": {
+                "type": "string"
+              },
+              "valid_until_utc": {
+                "type": "string",
+                "format": "date-time",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+              },
+              "cancel_if": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "weekly_target_evidence_id": {
+                "type": "string"
+              },
+              "entry_evidence_id": {
+                "type": "string"
+              },
+              "stop_evidence_id": {
+                "type": "string"
+              },
+              "target_evidence_id": {
+                "type": "string"
+              },
+              "assumptions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "side",
+              "order_type",
+              "entry_price",
+              "stop_trigger_price",
+              "adverse_stop_fill_price",
+              "target_trigger_price",
+              "conservative_target_fill_price",
+              "entry_price_side",
+              "exit_trigger_side",
+              "quote_bid",
+              "quote_ask",
+              "quote_at_utc",
+              "quantity",
+              "quantity_unit",
+              "quantity_step",
+              "minimum_quantity",
+              "account_currency",
+              "equity",
+              "value_per_price_unit_per_quantity",
+              "round_trip_cost_per_quantity",
+              "loss_per_quantity",
+              "reward_per_quantity",
+              "net_reward_risk",
+              "allowed_risk_cash",
+              "planned_risk_cash",
+              "risk_fraction_of_equity",
+              "selected_session_id",
+              "valid_until_utc",
+              "cancel_if",
+              "weekly_target_evidence_id",
+              "entry_evidence_id",
+              "stop_evidence_id",
+              "target_evidence_id",
+              "assumptions"
+            ]
+          },
+          "data_origin": {
+            "enum": [
+              "LIVE",
+              "HISTORICAL",
+              "SYNTHETIC"
+            ]
+          },
+          "lifecycle": {
+            "const": "ARMED"
+          },
+          "missing_inputs": {
+            "maxItems": 0
+          },
+          "rejection_codes": {
+            "maxItems": 0
+          },
+          "gates": {
+            "properties": {
+              "data_integrity": {
+                "properties": {
+                  "status": {
+                    "const": "PASS"
+                  },
+                  "evidence_ids": {
+                    "minItems": 1
+                  }
+                }
+              },
+              "data_freshness": {
+                "properties": {
+                  "status": {
+                    "const": "PASS"
+                  },
+                  "evidence_ids": {
+                    "minItems": 1
+                  }
+                }
+              },
+              "contract_identity": {
+                "properties": {
+                  "status": {
+                    "const": "PASS"
+                  },
+                  "evidence_ids": {
+                    "minItems": 1
+                  }
+                }
+              },
+              "calendar_coverage": {
+                "properties": {
+                  "status": {
+                    "const": "PASS"
+                  },
+                  "evidence_ids": {
+                    "minItems": 1
+                  }
+                }
+              },
+              "weekly_bias": {
+                "properties": {
+                  "status": {
+                    "const": "PASS"
+                  },
+                  "evidence_ids": {
+                    "minItems": 1
+                  }
+                }
+              },
+              "daily_or_exception_confirmation": {
+                "properties": {
+                  "status": {
+                    "const": "PASS"
+                  },
+                  "evidence_ids": {
+                    "minItems": 1
+                  }
+                }
+              },
+              "h4_alignment": {
+                "properties": {
+                  "status": {
+                    "const": "PASS"
+                  },
+                  "evidence_ids": {
+                    "minItems": 1
+                  }
+                }
+              },
+              "setup_geometry": {
+                "properties": {
+                  "status": {
+                    "const": "PASS"
+                  },
+                  "evidence_ids": {
+                    "minItems": 1
+                  }
+                }
+              },
+              "causal_sequence": {
+                "properties": {
+                  "status": {
+                    "const": "PASS"
+                  },
+                  "evidence_ids": {
+                    "minItems": 1
+                  }
+                }
+              },
+              "fresh_level": {
+                "properties": {
+                  "status": {
+                    "const": "PASS"
+                  },
+                  "evidence_ids": {
+                    "minItems": 1
+                  }
+                }
+              },
+              "target_path": {
+                "properties": {
+                  "status": {
+                    "const": "PASS"
+                  },
+                  "evidence_ids": {
+                    "minItems": 1
+                  }
+                }
+              },
+              "net_reward_risk": {
+                "properties": {
+                  "status": {
+                    "const": "PASS"
+                  },
+                  "evidence_ids": {
+                    "minItems": 1
+                  }
+                }
+              },
+              "session_news": {
+                "properties": {
+                  "status": {
+                    "const": "PASS"
+                  },
+                  "evidence_ids": {
+                    "minItems": 1
+                  }
+                }
+              },
+              "spread_execution": {
+                "properties": {
+                  "status": {
+                    "const": "PASS"
+                  },
+                  "evidence_ids": {
+                    "minItems": 1
+                  }
+                }
+              },
+              "portfolio_sizing": {
+                "properties": {
+                  "status": {
+                    "const": "PASS"
+                  },
+                  "evidence_ids": {
+                    "minItems": 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "trade_plan": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "decision": {
+            "const": "INVALIDATED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "prior_setup_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "lifecycle": {
+            "enum": [
+              "CANCELLED",
+              "EXPIRED"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

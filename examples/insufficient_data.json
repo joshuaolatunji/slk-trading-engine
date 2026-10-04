@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0",
+  "strategy_version": "1.0",
+  "as_of_utc": "2026-10-03T16:00:00Z",
+  "data_origin": "MISSING",
+  "decision": "INSUFFICIENT_DATA",
+  "validation_status": "UNVALIDATED",
+  "live_execution_allowed": false,
+  "probability_of_profit": null,
+  "instrument": null,
+  "policies": {
+    "bias": "B1",
+    "entry": "P1"
+  },
+  "setup_id": null,
+  "prior_setup_id": null,
+  "lifecycle": "OBSERVED",
+  "summary": "No current market or broker snapshots were supplied. No signal can be evaluated.",
+  "missing_inputs": [
+    "Exact broker instrument and contract specifications",
+    "Completed W1/D1/H4/H1/M15 bars and aggregation metadata",
+    "Fresh bid/ask and cost estimates",
+    "Current economic and market calendars",
+    "Account equity, risk reset rules, positions and pending exposure"
+  ],
+  "rejection_codes": [
+    "DATA_MISSING"
+  ],
+  "gates": {
+    "data_integrity": {
+      "status": "UNKNOWN",
+      "reason": "Required market, broker or account evidence has not been supplied.",
+      "evidence_ids": []
+    },
+    "data_freshness": {
+      "status": "UNKNOWN",
+      "reason": "Required market, broker or account evidence has not been supplied.",
+      "evidence_ids": []
+    },
+    "contract_identity": {
+      "status": "UNKNOWN",
+      "reason": "Required market, broker or account evidence has not been supplied.",
+      "evidence_ids": []
+    },
+    "calendar_coverage": {
+      "status": "UNKNOWN",
+      "reason": "Required market, broker or account evidence has not been supplied.",
+      "evidence_ids": []
+    },
+    "weekly_bias": {
+      "status": "UNKNOWN",
+      "reason": "Required market, broker or account evidence has not been supplied.",
+      "evidence_ids": []
+    },
+    "daily_or_exception_confirmation": {
+      "status": "UNKNOWN",
+      "reason": "Required market, broker or account evidence has not been supplied.",
+      "evidence_ids": []
+    },
+    "h4_alignment": {
+      "status": "UNKNOWN",
+      "reason": "Required market, broker or account evidence has not been supplied.",
+      "evidence_ids": []
+    },
+    "setup_geometry": {
+      "status": "UNKNOWN",
+      "reason": "Required market, broker or account evidence has not been supplied.",
+      "evidence_ids": []
+    },
+    "causal_sequence": {
+      "status": "UNKNOWN",
+      "reason": "Required market, broker or account evidence has not been supplied.",
+      "evidence_ids": []
+    },
+    "fresh_level": {
+      "status": "UNKNOWN",
+      "reason": "Required market, broker or account evidence has not been supplied.",
+      "evidence_ids": []
+    },
+    "target_path": {
+      "status": "UNKNOWN",
+      "reason": "Required market, broker or account evidence has not been supplied.",
+      "evidence_ids": []
+    },
+    "net_reward_risk": {
+      "status": "UNKNOWN",
+      "reason": "Required market, broker or account evidence has not been supplied.",
+      "evidence_ids": []
+    },
+    "session_news": {
+      "status": "UNKNOWN",
+      "reason": "Required market, broker or account evidence has not been supplied.",
+      "evidence_ids": []
+    },
+    "spread_execution": {
+      "status": "UNKNOWN",
+      "reason": "Required market, broker or account evidence has not been supplied.",
+      "evidence_ids": []
+    },
+    "portfolio_sizing": {
+      "status": "UNKNOWN",
+      "reason": "Required market, broker or account evidence has not been supplied.",
+      "evidence_ids": []
+    }
+  },
+  "evidence": [],
+  "trade_plan": null
+}
