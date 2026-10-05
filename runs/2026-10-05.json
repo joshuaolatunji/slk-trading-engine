@@ -1,0 +1,172 @@
+{
+  "EURUSD": {
+    "instrument": "EURUSD",
+    "symbol": "EURUSD=X",
+    "profile": "FOREX",
+    "as_of_utc": "2026-10-05T00:26:39.581570+00:00",
+    "bar_counts": {
+      "W1": 157,
+      "D1": 515,
+      "H4": 1585,
+      "H1": 6149,
+      "M15": 858
+    },
+    "history_sufficient": {
+      "W1": true,
+      "D1": true,
+      "H4": true,
+      "H1": true,
+      "M15": true
+    },
+    "decision": "NO_TRADE",
+    "rejection_codes": [
+      "NO_WEEKLY_BIAS"
+    ],
+    "reason": "No eligible B1 weekly event in the scanned window, or target availability ambiguous."
+  },
+  "GBPUSD": {
+    "instrument": "GBPUSD",
+    "symbol": "GBPUSD=X",
+    "profile": "FOREX",
+    "as_of_utc": "2026-10-05T00:26:39.581570+00:00",
+    "bar_counts": {
+      "W1": 157,
+      "D1": 515,
+      "H4": 1586,
+      "H1": 6150,
+      "M15": 858
+    },
+    "history_sufficient": {
+      "W1": true,
+      "D1": true,
+      "H4": true,
+      "H1": true,
+      "M15": true
+    },
+    "weekly_bias": {
+      "direction": "bullish",
+      "event_type": "sweep",
+      "event_bar_time": "2026-09-27T23:00:00+00:00",
+      "target": 1.339943766593933,
+      "ref_level": 1.3210039138793945,
+      "status": "awaiting D1 confirmation (B2 four-hour exception is disabled per config)"
+    },
+    "decision": "WATCHLIST",
+    "next_trigger": "A same-direction D1 structural break within 10 bars, after 2026-09-27T23:00:00+00:00"
+  },
+  "USDJPY": {
+    "instrument": "USDJPY",
+    "symbol": "USDJPY=X",
+    "profile": "FOREX",
+    "as_of_utc": "2026-10-05T00:26:39.581570+00:00",
+    "bar_counts": {
+      "W1": 157,
+      "D1": 515,
+      "H4": 1579,
+      "H1": 6100,
+      "M15": 856
+    },
+    "history_sufficient": {
+      "W1": true,
+      "D1": true,
+      "H4": true,
+      "H1": true,
+      "M15": true
+    },
+    "weekly_bias": {
+      "direction": "bullish",
+      "event_type": "sweep",
+      "event_bar_time": "2026-09-27T23:00:00+00:00",
+      "target": 158.99600219726562,
+      "ref_level": 156.5919952392578,
+      "status": "awaiting D1 confirmation (B2 four-hour exception is disabled per config)"
+    },
+    "decision": "WATCHLIST",
+    "next_trigger": "A same-direction D1 structural break within 10 bars, after 2026-09-27T23:00:00+00:00"
+  },
+  "USDCHF": {
+    "instrument": "USDCHF",
+    "symbol": "USDCHF=X",
+    "profile": "FOREX",
+    "as_of_utc": "2026-10-05T00:26:39.581570+00:00",
+    "bar_counts": {
+      "W1": 157,
+      "D1": 515,
+      "H4": 1587,
+      "H1": 6122,
+      "M15": 854
+    },
+    "history_sufficient": {
+      "W1": true,
+      "D1": true,
+      "H4": true,
+      "H1": true,
+      "M15": true
+    },
+    "weekly_bias": {
+      "direction": "bearish",
+      "event_type": "sweep",
+      "event_bar_time": "2026-09-27T23:00:00+00:00",
+      "target": 0.818310022354126,
+      "ref_level": 0.8297299742698669,
+      "status": "awaiting D1 confirmation (B2 four-hour exception is disabled per config)"
+    },
+    "decision": "WATCHLIST",
+    "next_trigger": "A same-direction D1 structural break within 10 bars, after 2026-09-27T23:00:00+00:00"
+  },
+  "XAUUSD": {
+    "instrument": "XAUUSD",
+    "symbol": "GC=F",
+    "profile": "XAUUSD",
+    "as_of_utc": "2026-10-05T00:26:39.581570+00:00",
+    "bar_counts": {
+      "W1": 157,
+      "D1": 502,
+      "H4": 1541,
+      "H1": 5702,
+      "M15": 723
+    },
+    "history_sufficient": {
+      "W1": true,
+      "D1": true,
+      "H4": true,
+      "H1": true,
+      "M15": true
+    },
+    "weekly_bias": {
+      "direction": "bullish",
+      "event_type": "sweep",
+      "event_bar_time": "2026-09-14T04:00:00+00:00",
+      "target": 4488.7998046875,
+      "ref_level": 4333.0,
+      "status": "awaiting D1 confirmation (B2 four-hour exception is disabled per config)"
+    },
+    "decision": "WATCHLIST",
+    "next_trigger": "A same-direction D1 structural break within 10 bars, after 2026-09-14T04:00:00+00:00"
+  },
+  "NAS100": {
+    "instrument": "NAS100",
+    "symbol": "NQ=F",
+    "profile": "NAS100",
+    "as_of_utc": "2026-10-05T00:26:39.581570+00:00",
+    "bar_counts": {
+      "W1": 157,
+      "D1": 502,
+      "H4": 1542,
+      "H1": 5708,
+      "M15": 723
+    },
+    "history_sufficient": {
+      "W1": true,
+      "D1": true,
+      "H4": true,
+      "H1": true,
+      "M15": true
+    },
+    "decision": "NO_TRADE",
+    "rejection_codes": [
+      "NO_WEEKLY_BIAS"
+    ],
+    "reason": "No eligible B1 weekly event in the scanned window, or target availability ambiguous."
+  }
+}
