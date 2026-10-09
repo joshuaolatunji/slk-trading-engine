@@ -1,0 +1,185 @@
+{
+  "EURUSD": {
+    "instrument": "EURUSD",
+    "symbol": "EURUSD=X",
+    "profile": "FOREX",
+    "as_of_utc": "2026-10-09T20:15:00.389336+00:00",
+    "bar_counts": {
+      "W1": 157,
+      "D1": 518,
+      "H4": 1590,
+      "H1": 6172,
+      "M15": 943
+    },
+    "history_sufficient": {
+      "W1": true,
+      "D1": true,
+      "H4": true,
+      "H1": true,
+      "M15": true
+    },
+    "decision": "NO_TRADE",
+    "rejection_codes": [
+      "NO_WEEKLY_BIAS"
+    ],
+    "reason": "No eligible B1 weekly event in the scanned window, or target availability ambiguous."
+  },
+  "GBPUSD": {
+    "instrument": "GBPUSD",
+    "symbol": "GBPUSD=X",
+    "profile": "FOREX",
+    "as_of_utc": "2026-10-09T20:15:00.389336+00:00",
+    "bar_counts": {
+      "W1": 157,
+      "D1": 518,
+      "H4": 1591,
+      "H1": 6173,
+      "M15": 943
+    },
+    "history_sufficient": {
+      "W1": true,
+      "D1": true,
+      "H4": true,
+      "H1": true,
+      "M15": true
+    },
+    "weekly_bias": {
+      "direction": "bullish",
+      "event_type": "sweep",
+      "event_bar_time": "2026-09-27T23:00:00+00:00",
+      "target": 1.339943766593933,
+      "ref_level": 1.3210039138793945
+    },
+    "daily_confirmation": {
+      "direction": "bullish",
+      "bar_time": "2026-10-06T23:00:00+00:00"
+    },
+    "h4_alignment": {
+      "direction": "bullish",
+      "bar_time": "2026-10-08T20:00:00+00:00"
+    },
+    "decision": "WATCHLIST",
+    "p1_candidates_found": 0,
+    "next_trigger": "P1 A-flip-up geometry (structural break + displacement + sponsored reaction + FVG overlap + fresh inside-candle) on H1"
+  },
+  "USDJPY": {
+    "instrument": "USDJPY",
+    "symbol": "USDJPY=X",
+    "profile": "FOREX",
+    "as_of_utc": "2026-10-09T20:15:00.389336+00:00",
+    "bar_counts": {
+      "W1": 157,
+      "D1": 518,
+      "H4": 1584,
+      "H1": 6123,
+      "M15": 942
+    },
+    "history_sufficient": {
+      "W1": true,
+      "D1": true,
+      "H4": true,
+      "H1": true,
+      "M15": true
+    },
+    "weekly_bias": {
+      "direction": "bearish",
+      "event_type": "sweep",
+      "event_bar_time": "2026-10-04T23:00:00+00:00",
+      "target": 156.39500427246094,
+      "ref_level": 158.4409942626953,
+      "status": "awaiting D1 confirmation (B2 four-hour exception is disabled per config)"
+    },
+    "decision": "WATCHLIST",
+    "next_trigger": "A same-direction D1 structural break within 10 bars, after 2026-10-04T23:00:00+00:00"
+  },
+  "USDCHF": {
+    "instrument": "USDCHF",
+    "symbol": "USDCHF=X",
+    "profile": "FOREX",
+    "as_of_utc": "2026-10-09T20:15:00.389336+00:00",
+    "bar_counts": {
+      "W1": 157,
+      "D1": 518,
+      "H4": 1592,
+      "H1": 6145,
+      "M15": 941
+    },
+    "history_sufficient": {
+      "W1": true,
+      "D1": true,
+      "H4": true,
+      "H1": true,
+      "M15": true
+    },
+    "weekly_bias": {
+      "direction": "bearish",
+      "event_type": "sweep",
+      "event_bar_time": "2026-09-27T23:00:00+00:00",
+      "target": 0.818310022354126,
+      "ref_level": 0.8297299742698669,
+      "status": "awaiting D1 confirmation (B2 four-hour exception is disabled per config)"
+    },
+    "decision": "WATCHLIST",
+    "next_trigger": "A same-direction D1 structural break within 10 bars, after 2026-09-27T23:00:00+00:00"
+  },
+  "XAUUSD": {
+    "instrument": "XAUUSD",
+    "symbol": "GC=F",
+    "profile": "XAUUSD",
+    "as_of_utc": "2026-10-09T20:15:00.389336+00:00",
+    "bar_counts": {
+      "W1": 157,
+      "D1": 504,
+      "H4": 1548,
+      "H1": 5730,
+      "M15": 802
+    },
+    "history_sufficient": {
+      "W1": true,
+      "D1": true,
+      "H4": true,
+      "H1": true,
+      "M15": true
+    },
+    "weekly_bias": {
+      "direction": "bullish",
+      "event_type": "sweep",
+      "event_bar_time": "2026-10-05T04:00:00+00:00",
+      "target": 4315.60009765625,
+      "ref_level": 4143.10009765625,
+      "status": "awaiting D1 confirmation (B2 four-hour exception is disabled per config)"
+    },
+    "decision": "WATCHLIST",
+    "next_trigger": "A same-direction D1 structural break within 10 bars, after 2026-10-05T04:00:00+00:00"
+  },
+  "NAS100": {
+    "instrument": "NAS100",
+    "symbol": "NQ=F",
+    "profile": "NAS100",
+    "as_of_utc": "2026-10-09T20:15:00.389336+00:00",
+    "bar_counts": {
+      "W1": 157,
+      "D1": 504,
+      "H4": 1549,
+      "H1": 5736,
+      "M15": 802
+    },
+    "history_sufficient": {
+      "W1": true,
+      "D1": true,
+      "H4": true,
+      "H1": true,
+      "M15": true
+    },
+    "weekly_bias": {
+      "direction": "bearish",
+      "event_type": "sweep",
+      "event_bar_time": "2026-10-05T04:00:00+00:00",
+      "target": 30356.75,
+      "ref_level": 31282.5,
+      "status": "awaiting D1 confirmation (B2 four-hour exception is disabled per config)"
+    },
+    "decision": "WATCHLIST",
+    "next_trigger": "A same-direction D1 structural break within 10 bars, after 2026-10-05T04:00:00+00:00"
+  }
+}
